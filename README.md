@@ -1,7 +1,7 @@
 # Ansible Unison Role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-unison.svg)](https://travis-ci.org/weareinteractive/ansible-unison)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.unison-blue.svg)](https://galaxy.ansible.com/list#/roles/)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.unison-blue.svg)](https://galaxy.ansible.com/list#/roles/4107)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-unison.svg)](https://github.com/weareinteractive/ansible-unison)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-unison.svg)](https://github.com/weareinteractive/ansible-unison)
 
