@@ -15,5 +15,4 @@
     owner: "{{ unison_user }}"
     group: "{{ unison_user }}"
     mode: "0644"
-  with_items:
-    - "{{ unison_configs }}"
+  with_items: "{{ unison_configs }}"

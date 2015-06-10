@@ -1,0 +1,31 @@
+# {{ ansible_managed }}
+
+# Two root directories to sync.
+# You can use ssh:// to sync over SSH
+root = {{ item.src }}
+root = {{ item.dest }}
+
+# If you want one-way mirroring from one replica to the other, specify the source replica using "force" as follows.
+# force = /home/alice/sync_folder
+
+# If you want Unison to run without any user input, try "batch" mode.
+batch = {{ item.batch | default(true) | to_nice_json }}
+
+# If you don't want to be prompted, and just accept Unison's recommendation:
+auto = {{ item.auto | default(true) | to_nice_json }}
+
+# Optionally, you can sync specific sub directories only (under the root).
+{% for item in item.paths | default([]) %}
+path = {{ item }}
+{% endfor %}
+
+# Optionally, you can ignore specific files or directories that are matched with regular expressions.
+# ignore = Name *.o
+# ignore = Name *~
+# ignore = Path */temp/archive_*
+{% for item in item.ignore | default([]) %}
+ignore = {{ item }}
+{% endfor %}
+
+# If you want to ignore difference in file props:
+perms = {{ item.perms | default(0) }}
