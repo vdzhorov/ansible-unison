@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  sudo: yes
+  roles:
+    - franklinkim.unison
+  vars:
+    unison_configs:
+      - name: sync
+        src: /home/unison
+        dest: ssh://dev.nul/home/unison
+        ignore:
+          - ".*"
+          - "~*"

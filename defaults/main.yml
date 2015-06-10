@@ -1,0 +1,29 @@
+---
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
+# unison_configs:
+#   - name: sync1
+#     # Two root directories to sync.
+#     src: /home/unison
+#     dest: ssh://dev.null/home/unison
+#     # If you want Unison to run without any user input, try "batch" mode.
+#     batch: yes
+#     # If you don't want to be prompted, and just accept Unison's recommendation:
+#     auto: yes
+#     # Optionally, you can sync specific sub directories only (under the root).
+#     paths: []
+#     # Optionally, you can ignore specific files or directories that are matched with regular expressions.
+#     ignore: []
+#     # If you want to ignore difference in file props:
+#     perms: 0
+#
+
+# list of configs
+unison_configs: []
+# unison user name (string | false)
+unison_user: unison
+# path to configs
+unison_config_path: "/home/{{ unison_user }}/.unison"
+# package name (version)
+unison_package: unison

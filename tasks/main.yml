@@ -1,0 +1,15 @@
+---
+
+- include: install.yml
+  tags:
+    - development
+    - unison
+    - install
+    - unison-install
+
+- include: manage.yml
+  tags:
+    - development
+    - unison
+    - manage
+    - unison-manage

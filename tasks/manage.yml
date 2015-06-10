@@ -1,0 +1,19 @@
+---
+
+- name: Creating directory
+  file:
+    path: "{{ unison_config_path }}"
+    owner: "{{ unison_user }}"
+    group: "{{ unison_user }}"
+    state: directory
+    mode: "0755"
+
+- name: Configuring files
+  template:
+    src: "home/user/.unison/sync.prf.j2"
+    dest: "{{ unison_config_path }}/{{ item.name }}.prf"
+    owner: "{{ unison_user }}"
+    group: "{{ unison_user }}"
+    mode: "0644"
+  with_items:
+    - "{{ unison_configs }}"

@@ -1,0 +1,9 @@
+---
+
+- name: Creating user
+  user:
+    name: "{{ unison_user }}"
+    generate_ssh_key: yes
+
+- name: Installing package
+  action: "{{ ansible_pkg_mgr }} pkg={{ unison_package }} state=present"
