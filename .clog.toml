@@ -1,4 +1,4 @@
 [clog]
 changelog = "CHANGELOG.md"
-repository = "https://github.com/weareinteractive/ansible-unision"
+repository = "https://github.com/weareinteractive/ansible-unison"
 from-latest-tag = true
