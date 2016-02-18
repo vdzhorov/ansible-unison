@@ -12,7 +12,7 @@ sudo: required
 #    - python-pip
 
 install:
-  - sudo apt-get install  -qq python-pip
+  - sudo apt-get install -qq python-pip
 
   # Install ansible
   - sudo pip install ansible
