@@ -1,6 +1,8 @@
 ---
 
 - hosts: all
+  tasks:
+    - debug: msg=ping
   roles:
     - weareinteractive.unison
   vars:
