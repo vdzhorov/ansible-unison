@@ -3,15 +3,11 @@ language: python
 python: "2.7"
 
 # Use the new container infrastructure
-sudo: false
-
-# Install ansible
-addons:
-  apt:
-    packages:
-    - python-pip
+# sudo: false
 
 install:
+ - apt-get install -qq python-pip
+
   # Install ansible
   - pip install ansible
 
