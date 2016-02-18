@@ -1,7 +1,4 @@
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
 # unison_configs:
 #   - name: sync1
 #     # Two root directories to sync.
