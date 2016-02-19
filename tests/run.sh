@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # define variables
-ROLE_NAME=franklinkim.unison
+ROLE_NAME=weareinteractive.unison
 
 # create role symnlink
 ln -s $(pwd) /usr/share/ansible/roles/$ROLE_NAME
+
+echo 'checking version'
+ansible --version
 
 echo 'checking syntax'
 ansible-playbook -vvvv -i 'localhost,' -c local $(pwd)/tests/main.yml --syntax-check
