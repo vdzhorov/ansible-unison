@@ -5,8 +5,8 @@ services:
   - docker
 before_install:
   - docker pull ubuntu:trusty
-  - docker run -v $(pwd):/usr/share/ansible/roles/weareinteractive.unison ubuntu:trusty --name trusty -c "echo 'ubuntu:trusty'"
-  - docker run -v $(pwd):/usr/share/ansible/roles/weareinteractive.unison ubuntu:precise --name precise -c "echo 'ubuntu:precise'"
+  - docker run -v .:/usr/share/ansible/roles/weareinteractive.unison --name trusty ubuntu:trusty -c "echo 'ubuntu:trusty'"
+  - docker run -v .:/usr/share/ansible/roles/weareinteractive.unison --name precise ubuntu:precise -c "echo 'ubuntu:precise'"
 
   - docker run trusty /bin/sh -c "apt-get install phyton-pip"
   - docker run precise /bin/sh -c "apt-get install phyton-pip"
