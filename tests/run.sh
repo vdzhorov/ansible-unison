@@ -6,6 +6,9 @@ ROLE_NAME=weareinteractive.unison
 # create role symnlink
 ln -s $(pwd) /usr/share/ansible/roles/$ROLE_NAME
 
+echo 'installing dependencies'
+apt-get install openssh-server
+
 echo 'checking version'
 ansible --version
 
