@@ -7,7 +7,7 @@ ROLE_NAME=weareinteractive.unison
 ln -s $(pwd) /usr/share/ansible/roles/$ROLE_NAME
 
 echo 'installing dependencies'
-apt-get install openssh-client
+apt-get install openssh-server openssh-client
 
 echo 'checking version'
 ansible --version
