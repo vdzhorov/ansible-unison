@@ -1,25 +1,18 @@
 ---
-language: ruby
+language: phyton
+
 sudo: required
+
 services:
   - docker
+
 before_install:
-  - docker pull ubuntu:trusty
-  - docker run -v .:/usr/share/ansible/roles/weareinteractive.unison --name trusty ubuntu:trusty /bin/sh -c "echo 'ubuntu:trusty'"
-  - docker run -v .:/usr/share/ansible/roles/weareinteractive.unison --name precise ubuntu:precise /bin/sh -c "echo 'ubuntu:precise'"
-
-  - docker run trusty /bin/sh /bin/sh -c "apt-get install phyton-pip"
-  - docker run precise /bin/sh /bin/sh -c "apt-get install phyton-pip"
-
-  - docker run trusty /bin/sh /bin/sh -c "pip install ansible"
-  - docker run precise /bin/sh /bin/sh -c "pip install ansible"
-
-  - docker run trusty /bin/sh /bin/sh -c "ansible --version"
-  - docker run precise /bin/sh /bin/sh -c "ansible --version"
+  - docker pull franklinkim/ansible:ubuntu-trusty
+  - docker pull franklinkim/ansible:ubuntu-precise
 
 script:
-  - docker run trusty /bin/sh /bin/sh -c "cd /usr/share/ansible/roles/weareinteractive.unison; ansible-playbook -vvvv -i 'localhost,' -c local tests/main.yml"
-  - docker run precise /bin/sh /bin/sh -c "cd /usr/share/ansible/roles/weareinteractive.unison; ansible-playbook -vvvv -i 'localhost,' -c local tests/main.yml"
+  - docker run -v $(pwd):/opt/ansible franklinkim/ansible:ubuntu-trusty tests/run.sh
+  - docker run -v $(pwd):/opt/ansible franklinkim/ansible:ubuntu-precise tests/run.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
