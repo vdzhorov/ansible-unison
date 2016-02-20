@@ -99,7 +99,7 @@ This is an example playbook:
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-unison.git
 $ cd ansible-unison
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
