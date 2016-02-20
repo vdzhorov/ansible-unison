@@ -81,8 +81,12 @@ This is an example playbook:
 ---
 
 - hosts: all
+  # pre_tasks for installing dependencies for running the tests within docker
+  pre_tasks:
+    - name: Installing openssh
+      action: "{{ ansible_pkg_mgr }} pkg=openssh-client state=present"
   roles:
-    - franklinkim.unison
+    - weareinteractive.unison
   vars:
     unison_configs:
       - name: sync
@@ -94,12 +98,13 @@ This is an example playbook:
 
 ```
 
+
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-unison.git
 $ cd ansible-unison
-$ make test
+$ vagrant up
 ```
 
 ## Contributing
