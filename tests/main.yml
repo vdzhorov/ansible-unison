@@ -1,6 +1,10 @@
 ---
 
 - hosts: all
+  # pre_tasks for installing dependencies for running the tests within docker
+  pre_tasks:
+    - name: Installing openssh
+      action: "{{ ansible_pkg_mgr }} pkg=openssh-client state=present"
   roles:
     - weareinteractive.unison
   vars:
