@@ -1,5 +1,6 @@
 ---
 language: phyton
+python: "2.7"
 
 sudo: required
 
