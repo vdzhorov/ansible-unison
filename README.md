@@ -1,44 +1,49 @@
-# Ansible Unison Role
+# Ansible weareinteractive.unison role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-unison.svg)](https://travis-ci.org/weareinteractive/ansible-unison)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.unison-blue.svg)](https://galaxy.ansible.com/list#/roles/4107)
+[![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.unison-blue.svg)](https://galaxy.ansible.com/weareinteractive/unison)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-unison.svg)](https://github.com/weareinteractive/ansible-unison)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-unison.svg)](https://github.com/weareinteractive/ansible-unison)
 
-> `unison` is an [ansible](http://www.ansible.com) role which:
+> `weareinteractive.unison` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs unison
 > * configures unison
+
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.unison` to `weareinteractive.unison`!
 
 ## Installation
 
 Using `ansible-galaxy`:
 
-```
-$ ansible-galaxy install franklinkim.unison
+```shell
+$ ansible-galaxy install weareinteractive.unison
 ```
 
 Using `requirements.yml`:
 
-```
-- src: franklinkim.unison
+```yaml
+- src: weareinteractive.unison
 ```
 
 Using `git`:
 
-```
-$ git clone https://github.com/weareinteractive/ansible-unison.git franklinkim.unison
+```shell
+$ git clone https://github.com/weareinteractive/ansible-unison.git weareinteractive.unison
 ```
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.0
 
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
-```
+```yaml
+---
 # unison_configs:
 #   - name: sync1
 #     # Two root directories to sync.
@@ -64,13 +69,18 @@ unison_user: unison
 unison_config_path: "/home/{{ unison_user }}/.unison"
 # package name (version)
 unison_package: unison
-```
-
-## Example playbook
 
 ```
+
+
+## Usage
+
+This is an example playbook:
+
+```yaml
+---
+
 - hosts: all
-  sudo: yes
   roles:
     - franklinkim.unison
   vars:
@@ -81,11 +91,12 @@ unison_package: unison
         ignore:
           - ".*"
           - "~*"
+
 ```
 
 ## Testing
 
-```
+```shell
 $ git clone https://github.com/weareinteractive/ansible-unison.git
 $ cd ansible-unison
 $ vagrant up
@@ -99,6 +110,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+*Note: To update the `README.md` file please install and run `ansible-role`:*
+
+```shell
+$ gem install ansible-role
+$ ansible-role docgen
+```
 
 ## License
 Copyright (c) We Are Interactive under the MIT license.

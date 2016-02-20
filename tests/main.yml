@@ -1,9 +1,8 @@
 ---
 
 - hosts: all
-  sudo: yes
   roles:
-    - franklinkim.unison
+    - weareinteractive.unison
   vars:
     unison_configs:
       - name: sync
