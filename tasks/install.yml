@@ -5,5 +5,41 @@
     name: "{{ unison_user }}"
     generate_ssh_key: yes
 
-- name: Installing package
-  action: "{{ ansible_pkg_mgr }} pkg={{ unison_package }} state=present"
+- name: Install prerequisites
+  package:
+    name: gcc, make, ocaml
+    state: present
+
+- name: Check if Unison has been installed
+  stat:
+    path: "{{ unison_binary_install_location }}"
+  register: unison_binary
+
+- name: Download Unison source
+  get_url:
+    url: https://github.com/bcpierce00/unison/archive/v{{ unison_version }}.tar.gz
+    dest: "{{ unison_source_download_location }}"
+  when: not unison_binary.stat.exists
+
+- name: Unarchive source code
+  unarchive:
+    src: "{{ unison_source_download_location }}/unison-{{ unison_version }}.tar.gz"
+    dest: "{{ unison_source_unarchive_location }}"
+    remote_src: yes
+  when: not unison_binary.stat.exists
+
+- name: Compile Unison source
+  make:
+    chdir: "{{ unison_source_unarchive_location }}/unison-{{ unison_version }}"
+  when: not unison_binary.stat.exists
+
+- name: Copy Unison binaries
+  copy:
+    src: "{{ item }}"
+    dest: "{{ unison_binary_install_location }}"
+    remote_src: yes
+    mode: 0755
+  loop:
+    - "{{ unison_source_unarchive_location }}/unison-{{ unison_version }}/src/unison"
+    - "{{ unison_source_unarchive_location }}/unison-{{ unison_version }}/src/unison-fsmonitor"
+  when: not unison_binary.stat.exists

@@ -24,3 +24,11 @@ unison_user: unison
 unison_config_path: "/home/{{ unison_user }}/.unison"
 # package name (version)
 unison_package: unison
+# version
+unison_version: 2.51.2
+# source download location
+unison_source_download_location: /tmp
+# source unarchive location
+unison_source_unarchive_location: /usr/local/src
+# unison binary install location
+unison_binary_install_location: /usr/bin/unison
