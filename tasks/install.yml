@@ -36,7 +36,7 @@
 - name: Copy Unison binaries
   copy:
     src: "{{ item }}"
-    dest: "{{ unison_binary_install_location }}"
+    dest: "{{ unison_binary_install_location }}/"
     remote_src: yes
     mode: 0755
   loop:

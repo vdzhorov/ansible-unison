@@ -31,4 +31,4 @@ unison_source_download_location: /tmp
 # source unarchive location
 unison_source_unarchive_location: /usr/local/src
 # unison binary install location
-unison_binary_install_location: /usr/bin/unison
+unison_binary_install_location: /usr/bin
