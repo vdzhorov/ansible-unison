@@ -12,7 +12,7 @@
 
 - name: Check if Unison has been installed
   stat:
-    path: "{{ unison_binary_install_location }}"
+    path: "{{ unison_binary_install_location }}/unison"
   register: unison_binary
 
 - name: Download Unison source
