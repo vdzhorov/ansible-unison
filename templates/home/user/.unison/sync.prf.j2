@@ -1,9 +1,10 @@
 # {{ ansible_managed }}
 
-# Two root directories to sync.
+# Directories to sync.
 # You can use ssh:// to sync over SSH
-root = {{ item.src }}
-root = {{ item.dest }}
+{% for root in item.roots %}
+root = {{ root }}
+{% endfor %}
 
 # If you want one-way mirroring from one replica to the other, specify the source replica using "force" as follows.
 # force = /home/alice/sync_folder
