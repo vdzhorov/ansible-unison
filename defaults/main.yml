@@ -1,10 +1,9 @@
 ---
 # unison_configs:
 #   - name: sync1
-#     # Root directories to sync.
-#     roots:
-#       - /home/unison
-#       - ssh://dev.null/home/unison
+#     # Two root directories to sync.
+#     src: /home/unison
+#     dest: ssh://dev.null/home/unison
 #     # If you want Unison to run without any user input, try "batch" mode.
 #     batch: yes
 #     # If you don't want to be prompted, and just accept Unison's recommendation:
